@@ -14,7 +14,7 @@ def user_login():
         print("1: add a job request")
         print("10: exit")
         while True:
-            option = input("enter your choice:   ")
+            option = int(input("enter your choice:   "))
             if 0 < option < 2 or option == 10:
                 break
             else:
@@ -25,7 +25,8 @@ def user_login():
             order_cost = 0
             order_cost = input("how much are you willing to pay?  ")
             #shold add ending_date
-            requests.add_job_request(user_name,user_request,order_cost,)
+            requests.add_job_request(user_name,user_request,order_cost,0)
+            print("request added")
 
         elif option == 10:
             print("exiting user section")

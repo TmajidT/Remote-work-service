@@ -5,6 +5,7 @@ import add_orders
 
 
 def operator_login():
+    print("----------------------------------------------")
     print("operator login section!")
     option = 0
 
@@ -16,7 +17,7 @@ def operator_login():
         print("1: accept a job request")
         print("10: exit")
         while True:
-            option = input("enter your choice:   ")
+            option = int(input("enter your choice:   "))
             if 0 < option < 2 or option == 10:
                 break
             else:
@@ -25,7 +26,7 @@ def operator_login():
         if option == 1:
             row_number = requests.show_all_job_requests()
             while True:
-                accepted_job = input("witch job do you want to accept:  ")
+                accepted_job = int(input("witch job do you want to accept(enter ID):  "))
                 if 0 < accepted_job <= row_number:
                     break
                 else:

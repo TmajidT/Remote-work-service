@@ -4,7 +4,7 @@ import add_orders
 import check_password
 import requests
 import user
-import operator
+import operatorr
 
 print("----------------------------------------------")
 print("Hi,Welcome to Remote work service :)")
@@ -21,7 +21,7 @@ while True:
     print("10: exit")
     print("----------------------------------------------")
     while True:
-        option = input("enter your choice:   ")
+        option = int(input("enter your choice:   "))
         if 0 < option < 5 or option == 10:
             break
         else:
@@ -35,7 +35,7 @@ while True:
     elif option == 3:
         user.user_login()
     elif option == 4:
-        operator.operator_login()
+        operatorr.operator_login()
     elif option == 10:
         break
 

@@ -11,6 +11,7 @@ def check_user_password(user_name):
     if result is None:
         # User_name does not exist
         print("User_name does not exist!")
+        return False
     else:
         # User_name exists, prompt for password and validate it
         password = input("Password: ")
@@ -37,6 +38,7 @@ def check_operator_password(user_name):
     if result is None:
         # User_name does not exist
         print("User_name does not exist!")
+        return False
     else:
         # User_name exists, prompt for password and validate it
         password = input("Password: ")

@@ -55,10 +55,12 @@ def show_all_job_requests():
     c.execute('''SELECT * FROM job_requests''')
     rows = c.fetchall()
 
+    print("----------------------------------------------")
     if len(rows) == 0:
         print("No job requests found.")
     else:
         print("Job Requests:")
+        print()
         for row in rows:
             print("ID:", row[0])
             print("User Name:", row[1])
