@@ -25,7 +25,7 @@ def create_or_connect_to_database():
     # Save changes and close the connection
     conn.commit()
     conn.close()
-
+    
 def add_user():
     # Connect to the database
     conn = sqlite3.connect('database.db')
@@ -39,9 +39,31 @@ def add_user():
     # Get user information
     first_name = input("First Name: ")
     last_name = input("Last Name: ")
-    user_name = input("User Name: ")
+
+    # Get user_name from the user
+    while True:
+        user_name = input("User Name: ")
+
+        # Check if the user_name already exists in the table
+        c.execute('SELECT User_Name FROM users WHERE User_Name = ?', (user_name,))
+        result = c.fetchone()
+
+        if result:
+            print("This User Name already exists. Please choose a different User Name.")
+        else:
+            break
+
     password = input("Password: ")
-    phone_number = input("Phone Number: ")
+
+    # Get phone_number from the user
+    while True:
+        phone_number = input("Phone Number: ")
+
+        if len(phone_number) != 11 or not phone_number.startswith("09"):
+            print("Phone Number must be 11 digits and start with '09'.")
+        else:
+            break
+
     current_city = input("Current City: ")
 
     # Set the initial financial balance to 0
