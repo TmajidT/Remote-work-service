@@ -1,6 +1,7 @@
 import sqlite3
 from datetime import date
 
+
 def create_job_requests_table():
     conn = sqlite3.connect('database.db')
     c = conn.cursor()
@@ -21,6 +22,7 @@ def create_job_requests_table():
     # Commit the changes and close the connection
     conn.commit()
     conn.close()
+
 
 def add_job_request(user_name, user_request, order_cost, ending_date):
     create_job_requests_table()
@@ -43,9 +45,8 @@ def add_job_request(user_name, user_request, order_cost, ending_date):
     conn.close()
 
 
-
-
 import sqlite3
+
 
 def show_all_job_requests():
     conn = sqlite3.connect('database.db')
@@ -70,3 +71,6 @@ def show_all_job_requests():
 
     # Close the connection
     conn.close()
+
+    # return number of rows
+    return len(rows)
