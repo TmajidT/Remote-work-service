@@ -1,14 +1,15 @@
+import sqlite3
 import check_password
 import requests
 import add_orders
 
 
-def user_login():
+def operator_login():
     print("operator login section!")
     option = 0
 
-    user_name = input("pleas enter your user name: ")
-    if check_password.check_operator_password(user_name) is False:
+    operator_user_name = input("pleas enter your user name: ")
+    if check_password.check_operator_password(operator_user_name) is False:
         print("pleas try again!")
     else:
         print("----------------------------------------------")
@@ -30,7 +31,27 @@ def user_login():
                 else:
                     print("enter a valid number!")
 
-            add_orders.add_order()
+
+            #get users data
+            conn = sqlite3.connect('database.db')
+            c = conn.cursor()
+
+            c.execute('SELECT * FROM job_requests WHERE ID = ?', (accepted_job,))
+            result = c.fetchone()
+            conn.close()
+
+
+            #to get operators score
+            conn = sqlite3.connect('database.db')
+            c = conn.cursor()
+
+            c.execute('SELECT * FROM operator WHERE User_Name = ?', (operator_user_name,))
+            operator_result = c.fetchone()
+            conn.close()
+
+
+
+            add_orders.add_order(result[1],operator_user_name,result[3],result[4],result[5],operator_result[8])
 
 
 

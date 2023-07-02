@@ -22,7 +22,7 @@ def create_orders_table():
     conn.commit()
     conn.close()
 
-def add_order(user_name, operator_name, order_cost, starting_date, ending_date, user_score):
+def add_order(user_name, operator_name, order_cost, starting_date, ending_date, operator_score):
     create_orders_table()
     conn = sqlite3.connect('database.db')
     c = conn.cursor()
@@ -34,7 +34,7 @@ def add_order(user_name, operator_name, order_cost, starting_date, ending_date, 
     c.execute('''
         INSERT INTO orders (ID, OR_ID, User_Name, Operator_Name, Order_Cost, Starting_Date, Ending_Date, User_Score)
         VALUES (?, ?, ?, ?, ?, ?, ?, ?)
-    ''', (next_id, None, user_name, operator_name, order_cost, starting_date, ending_date, user_score))
+    ''', (next_id, None, user_name, operator_name, order_cost, starting_date, ending_date, operator_score))
 
     # Commit the changes and close the connection
     conn.commit()
