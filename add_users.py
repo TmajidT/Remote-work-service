@@ -27,6 +27,8 @@ def create_or_connect_to_database():
     conn.close()
     
 def add_user():
+
+    create_or_connect_to_database()
     # Connect to the database
     conn = sqlite3.connect('database.db')
     c = conn.cursor()

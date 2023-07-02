@@ -1,13 +1,18 @@
 import add_users
 import add_operators
+import add_orders
 
 #all of the abilities ---- you can delete # and use them
 #--------------------------------------------------------------------
 
 #add a user
-#add_users.create_or_connect_to_database()
 #add_users.add_user()
 
 
 #add an operator
-add_operators.add_operator()
+#add_operators.add_operator()
+
+
+#add an order
+#add_orders.add_order("johnsmith", "operator1", 50, "2023-07-01", "2023-07-05", 25)
+
