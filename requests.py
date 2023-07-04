@@ -76,3 +76,30 @@ def show_all_job_requests():
 
     # return number of rows
     return len(rows)
+
+
+def see_orders():
+    conn = sqlite3.connect('database.db')
+    c = conn.cursor()
+
+    c.execute('''SELECT * FROM orders''')
+    rows = c.fetchall()
+
+    print("----------------------------------------------")
+    if len(rows) == 0:
+        print("No Orders found.")
+    else:
+        print("Orders:")
+        print()
+        for row in rows:
+            print("ID:", row[0])
+            print("User Name:", row[2])
+            print("Operator Name:", row[3])
+            print("Order Cost:", row[4])
+            print("Starting date:", row[5])
+            print("Ending Date:", row[6])
+            print("User Score:", row[7])
+            print()
+
+    # Close the connection
+    conn.close()
